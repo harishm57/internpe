@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1><marquee id="marquee" loop="-1" scrollamount="10" width="100%">
+        Calculator using HTML, CSS, and JavaScript..!
+    </marquee></h1>
+    
+    <script>
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        
+        function changeMarqueeColor() {
+            const marquee = document.getElementById("marquee");
+            const randomColor = getRandomColor();
+            marquee.style.backgroundColor = randomColor;
+        }
+        
+        // Change the marquee's background color at a set interval (e.g., every 2 seconds)
+        setInterval(changeMarqueeColor, 2000);
+        
+        
+        
+    </script>
+    <div class="container">
+        <div class="calculator">
+            <form>
+                <div class="display">
+                    <input type="text" name="display">
+                </div>
+                <div>
+                    <input type="button" value="AC" onclick="display.value='' " class="ac">
+                    <input type="button" value="DEL" onclick="display.value=display.value.toString().slice(0,-1) " class="ac">
+                    <input type="button" value="/" onclick="display.value+='/' " class="ac">
+                    <input type="button" value="." onclick="display.value+='.' " class="op">
+                </div>
+                <div>
+                    <input type="button" value="7" onclick="display.value+='7' ">
+                    <input type="button" value="8" onclick="display.value+='8' ">
+                    <input type="button" value="9" onclick="display.value+='9' ">
+                    <input type="button" value="*" onclick="display.value+='*' " class="op">
+                </div>
+                <div>
+                    <input type="button" value="4" onclick="display.value+='4' ">
+                    <input type="button" value="5" onclick="display.value+='5' ">
+                    <input type="button" value="6" onclick="display.value+='6' ">
+                    <input type="button" value="-" onclick="display.value+='-' " class="op">
+                </div>
+                <div>
+                    <input type="button" value="1" onclick="display.value+='1' ">
+                    <input type="button" value="2" onclick="display.value+='2' ">
+                    <input type="button" value="3" onclick="display.value+='3' ">
+                    <input type="button" value="+" onclick="display.value+='+' " class="op">
+                </div>
+                <div>
+                    
+                    <input type="button" value="0" onclick="display.value+='0' " class="zero">
+                    <input type="button" value="00" onclick="display.value+='00' " >
+                    <input type="button" value="=" onclick="display.value=eval(display.value)" class="op">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
